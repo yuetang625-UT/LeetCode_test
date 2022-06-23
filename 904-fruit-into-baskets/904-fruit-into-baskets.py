@@ -9,11 +9,9 @@ class Solution(object):
         res=0
         sum=1
         for i in range(1,len(fruits)):
-            if fruits[i] not in tmp and len(tmp)<2:
-                tmp.append(fruits[i])
-                index=i
-                sum+=1
-            elif fruits[i] in tmp and len(tmp)==1:
+            if len(tmp)==1:
+                if fruits[i] not in tmp:
+                    tmp.append(fruits[i])
                 index=i
                 sum+=1
             elif fruits[i] in tmp and len(tmp)==2:
