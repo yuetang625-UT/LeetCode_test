@@ -13,7 +13,6 @@ class Solution(object):
         """
         def traversal(cur_node,remain):
             path.append(cur_node.val)
-            print path
             if not cur_node.left and not cur_node.right:
                 if remain==0:
                     result.append(path[:])
