@@ -13,7 +13,6 @@ class Solution(object):
         res=[]
         r=float("inf")
         def buildaList(root):
-            if not root: return None
             if root.left: buildaList(root.left)
             res.append(root.val)
             if root.right: buildaList(root.right)
