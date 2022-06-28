@@ -1,0 +1,2 @@
+# Write your MySQL query statement below
+SELECT Employee.employee_id, T.team_size FROM Employee JOIN (SELECT employee_id, team_id, count(team_id) team_size FROM Employee GROUP BY team_id) AS T on Employee.team_id=T.team_id
