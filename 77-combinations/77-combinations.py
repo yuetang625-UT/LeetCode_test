@@ -11,7 +11,7 @@ class Solution(object):
             if len(path)==k:
                 fin.append(path[:])
                 return
-            for i in range(index,n-(k-len(path))+2):
+            for i in range(index,n+1):
                 path.append(i)
                 backtracking(n,k,i+1)
                 path.pop()
