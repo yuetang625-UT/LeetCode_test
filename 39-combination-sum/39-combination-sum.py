@@ -12,9 +12,10 @@ class Solution(object):
             if sum(path)==target:
                 result.append(path[:])
                 return
-            if sum(path)>target:
-                return
+
             for i in range(index,len(candidates)):
+                if sum(path)>target:
+                    return
                 path.append(candidates[i])
                 backtracking(candidates,target,i)
                 path.pop()
