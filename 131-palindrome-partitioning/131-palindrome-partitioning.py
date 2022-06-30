@@ -8,7 +8,7 @@ class Solution(object):
         path=[]
         
         def backtracking(s,index):
-            if index>=len(s):
+            if index==len(s):
                 result.append(path[:])
                 return
             for i in range(index,len(s)):
