@@ -1,0 +1,2 @@
+# Write your MySQL query statement below
+SELECT T1.order_id FROM (SELECT order_id, max(quantity) maxq FROM OrdersDetails GROUP BY order_id ) T1 WHERE maxq > ALL(SELECT avg(quantity) maxq FROM OrdersDetails GROUP BY order_id ) 
