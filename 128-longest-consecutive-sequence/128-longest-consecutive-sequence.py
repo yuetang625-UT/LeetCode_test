@@ -5,7 +5,6 @@ class Solution(object):
         :rtype: int
         """
         nums.sort()
-        print(nums)
         if nums==[]: return 0
         if len(nums)==1: return 1
         pre=nums[0]
