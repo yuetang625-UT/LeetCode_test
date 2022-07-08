@@ -1,0 +1,2 @@
+# Write your MySQL query statement below
+SELECT customer_id, product_id, product_name FROM (SELECT customer_id, product_id, product_name,rank() over(partition by customer_id ORDER BY product_time DESC) r FROM (SELECT customer_id, product_id, count(product_id) product_time FROM Customers JOIN Orders USING (customer_id) GROUP BY customer_id,product_id) T JOIN Products USING (product_id)) T1 WHERE r=1
