@@ -14,5 +14,5 @@ class Solution(object):
                 continue
             else:
                 res+=prices[i]-(minp+fee)
-                minp=prices[i]-fee
+                minp=prices[i] -fee
         return res
