@@ -1,7 +1,10 @@
 # Write your MySQL query statement below
-SELECT DISTINCT a.id, (SELECT name FROM Accounts WHERE id=a.id) name
-FROM Logins a, Logins b
-WHERE a.id=b.id
-AND DATEDIFF(a.login_date,b.login_date) BETWEEN 1 AND 4
-GROUP BY a.id, a.login_date
-HAVING COUNT(DISTINCT b.login_date) >= 4
+WITH ECT AS(SELECT l1.id FROM Logins l1, Logins l2 
+WHERE l1.id=l2.id AND 
+DATEDIFF(l1.login_date,l2.login_date) between 1 and 4
+GROUP BY l1.id, l1.login_date
+HAVING COUNT(DISTINCT l2.login_date)>=4)
+SELECT * FROM Accounts 
+WHERE id in (SELECT id FROM ECT)
+ORDER BY id
+
